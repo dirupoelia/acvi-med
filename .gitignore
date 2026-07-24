@@ -1,3 +1,6 @@
+# This file contains system-specific volume paths
+tool/docker-compose.override.yaml
+
 /target
 .idea
 *.iml
