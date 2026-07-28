@@ -209,7 +209,7 @@ class VariantList extends React.Component {
       return [];
     }
 
-    var excludedInfoFields = ["info_csq_symbol", "info_controls_af_popmax", "filter", "info_csq_canonical", "info_csq_impact", "info_csq_consequence"];
+    var excludedInfoFields = ["info_csq_symbol", "info_controls_af_popmax", "filter", "info_csq_canonical", "info_csq_impact", "info_csq_consequence", "info_csq_max_af"];
 
     var infoFields = this.getFilteredInfoFieldsRecursive(this.filter.expression);
     var uniqueInfoFields = [];
@@ -447,6 +447,49 @@ class VariantList extends React.Component {
       </span>;
   }
 
+  /**
+   * Helper functions for rendering the Max Allele Frequency column
+   */
+  formatMaxAf(value) {
+    const af = Number(value);
+
+    if (!Number.isFinite(af)) {
+      return "NA";
+    }
+
+    return `${(100 * af).toFixed(2)}%`;
+  }
+
+  /**
+   * Renders the numeric VEP MAX_AF value in the variant list table.
+   *
+   * The cell shows only the maximum allele frequency value, formatted as a
+   * percentage, together with the compact horizontal frequency bar.
+   *
+   * Note: this value is VEP MAX_AF as provided by the annotation and does not
+   * exclude bottleneck or founder populations.
+   */
+  renderMaxAfCell(item) {
+    const afRaw = Number(item?.info?.info_csq_max_af);
+    const af = this.formatMaxAf(item?.info?.info_csq_max_af);
+
+    if (!Number.isFinite(afRaw)) {
+      return <span>NA</span>;
+    }
+
+    return (
+      <span className="maxAfCell">
+        <span className="smallBarBackground">
+          <span
+            style={{ width: `${100 * afRaw}%` }}
+            className="smallBar"
+          />
+        </span>
+        <span>{af}</span>
+      </span>
+    );
+  }
+
   render() {
     let message = "";
 
@@ -509,7 +552,16 @@ class VariantList extends React.Component {
                           <th>Alt</th>
                           <th>Filter</th>
                           <th>Canonical</th>
-                          <th>Max allele frequency</th>
+                          <th>
+                            Max allele frequency{" "}
+                            <i
+                              className="bi bi-info-circle-fill infoIcon"
+                              title={
+                                "Maximum allele frequency across available population datasets, including gnomAD, 1000 Genomes and ESP\n" +
+                                "It does NOT exclude bottleneck or founder populations such as AMI, ASJ, FIN or REMAINING."
+                              }
+                            />
+                          </th>
                           <th>Impact</th>
                           <th>Consequence</th>
                           <th>Predictions</th>
@@ -538,10 +590,7 @@ class VariantList extends React.Component {
                             <td>{this.renderFilter(item)}</td>
                             <td>{this.renderCanonical(item)}</td>
                             <td>
-                              <span className="smallBarBackground">
-                                <span style={{"width" : ((100 * item?.info?.info_controls_af_popmax) + "%")}} className="smallBar"></span>
-                              </span> 
-                              <span>{Number(100 * item?.info?.info_controls_af_popmax).toFixed(0)}%</span>
+                              {this.renderMaxAfCell(item)}
                             </td>
                             <td>{this.renderImpact(item)}</td>
                             <td>

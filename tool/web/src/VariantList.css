@@ -244,5 +244,15 @@ span.larger {
   font-size: 12pt;
 }
 
+/*Rules for header info icon*/
+.infoIcon {
+  font-size: 12px;
+  cursor: help;
+  margin-left: 4px;
+  color: #00a087;
+}
 
+.infoIcon:hover {
+  color: #111;
+}
 
