@@ -38,7 +38,7 @@ public class VariantLoader {
     static final long PAGE_SIZE = 100; //needs to be a divisor of GLOBAL_LIMIT in order for the cache to take it in account
     static final long RESULT_COUNT_LIMIT = 1000; //move this to config file, determines when the result count stops
     //TODO move to config
-    static final List<String> DEFAULT_INFO_FIELDS = Arrays.asList("info_csq_tsl", "info_csq_canonical", "info_csq_metasvm_score", "info_csq_revel_score", "info_csq_mvp_score", "info_csq_sift4g_score", "info_csq_dann_score", "info_csq_fathmm_score", "info_csq_primateai_score", "info_csq_polyphen", "info_csq_gerp_rs", "info_cadd_phred", "info_cadd_raw", "info_caddind_phred", "info_caddind_raw", "info_csq_impact", "info_controls_af_popmax", "info_csq_symbol", "info_csq_consequence");
+    static final List<String> DEFAULT_INFO_FIELDS = Arrays.asList("info_csq_tsl", "info_csq_canonical", "info_csq_metasvm_score", "info_csq_revel_score", "info_csq_mvp_score", "info_csq_sift4g_score", "info_csq_dann_score", "info_csq_fathmm_score", "info_csq_primateai_score", "info_csq_polyphen", "info_csq_gerp_rs", "info_cadd_phred", "info_cadd_raw", "info_caddind_phred", "info_caddind_raw", "info_csq_impact", "info_controls_af_popmax", "info_csq_symbol", "info_csq_consequence", "info_csq_max_af", "info_csq_max_af_pops");
     static final String googleCloudProjectId = "genomics-324511";
     static final String googleCloudBucketId = "genomics-324511-data";
 
