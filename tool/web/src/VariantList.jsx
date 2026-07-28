@@ -457,7 +457,7 @@ class VariantList extends React.Component {
       return "NA";
     }
 
-    return `${(100 * af).toFixed(2)}%`;
+    return `${(100 * af).toFixed(1)}%`;
   }
 
   /**
