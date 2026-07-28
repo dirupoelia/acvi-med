@@ -209,7 +209,7 @@ class VariantList extends React.Component {
       return [];
     }
 
-    var excludedInfoFields = ["info_csq_symbol", "info_controls_af_popmax", "filter", "info_csq_canonical", "info_csq_impact", "info_csq_consequence", "info_csq_max_af"];
+    var excludedInfoFields = ["info_csq_symbol", "info_controls_af_popmax", "filter", "info_csq_canonical", "info_csq_impact", "info_csq_consequence", "info_csq_max_af", "info_csq_max_af_pops"];
 
     var infoFields = this.getFilteredInfoFieldsRecursive(this.filter.expression);
     var uniqueInfoFields = [];
@@ -490,6 +490,65 @@ class VariantList extends React.Component {
     );
   }
 
+  /**
+   * Helper functions for rendering the Max AF Pop column
+   */
+  formatMaxAfPops(raw) {
+    if (raw == null || raw === "" || raw === ".") {
+      return [];
+    }
+
+    return String(raw)
+      .split("&")
+      .map(x => x.trim())
+      .filter(x => x.length > 0 && x !== ".");
+  }
+
+  getMaxAfPopsTooltip(item) {
+    const pops = this.formatMaxAfPops(item?.info?.info_csq_max_af_pops);
+
+    if (pops.length === 0) {
+      return `MAX_AF: ${af}\nPopulation source: not available`;
+    }
+
+    return [
+      "Population(s) contributing to MAX_AF:",
+      ...pops.map(pop => `- ${pop}`)
+    ].join("\n");
+  }
+
+  /**
+   * Renders the population source(s) associated with VEP MAX_AF.
+   *
+   * If only one population contributed to MAX_AF, the population is shown as
+   * plain text. If multiple populations contributed, the first population is
+   * shown followed by an underlined "+N" suffix; hovering over "+N" displays
+   * the complete population list.
+   */
+  renderMaxAfPopCell(item) {
+    const pops = this.formatMaxAfPops(item?.info?.info_csq_max_af_pops);
+
+    if (pops.length === 0) {
+      return <span>NA</span>;
+    }
+
+    if (pops.length === 1) {
+      return <span>{pops[0]}</span>;
+    }
+
+    return (
+      <span className="maxAfPopCell">
+        <span>{pops[0]} </span>
+        <span
+          className="popMoreTooltip"
+          data-title={this.getMaxAfPopsTooltip(item)}
+        >
+          (+{pops.length - 1})
+        </span>
+      </span>
+    );
+  }
+
   render() {
     let message = "";
 
@@ -562,6 +621,14 @@ class VariantList extends React.Component {
                               }
                             />
                           </th>
+                          <th>
+                            Max AF pop{" "}
+                            <i className="bi bi-info-circle-fill infoIcon"
+                              title = {"This column shows the population source reported in Max allele frequency.\n" +
+                                "If multiple populations share the same AF value, the first is shown followed by '+N'.\n" +
+                                "Hover over '+N' to see the full list."}
+                            />
+                          </th>
                           <th>Impact</th>
                           <th>Consequence</th>
                           <th>Predictions</th>
@@ -591,6 +658,9 @@ class VariantList extends React.Component {
                             <td>{this.renderCanonical(item)}</td>
                             <td>
                               {this.renderMaxAfCell(item)}
+                            </td>
+                            <td>
+                              {this.renderMaxAfPopCell(item)}
                             </td>
                             <td>{this.renderImpact(item)}</td>
                             <td>
