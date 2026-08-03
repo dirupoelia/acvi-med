@@ -50,6 +50,104 @@
       "displayable":false
     },
     {
+      "name":"RPA",
+      "id":"info_rpa",
+      "link":"",
+      "description":"Number of times tandem repeat unit is repeated in reference.",
+      "displayable":true
+    },
+    {
+      "name":"RU",
+      "id":"info_ru",
+      "link":"",
+      "description":"Tandem repeat unit (bases)",
+      "displayable":true
+    },
+    {
+      "name":"EVENT",
+      "id":"info_event",
+      "link":"",
+      "description":"Event name",
+      "displayable":true
+    },
+    {
+      "name":"TargetedCaller",
+      "id":"info_targetedcaller",
+      "link":"Targeted Caller Name",
+      "description":"",
+      "displayable":true
+    },
+    {
+      "name":"STR",
+      "id":"info_str",
+      "link":"",
+      "description":"Variant is in a short tandem repeat.",
+      "displayable":true
+    },
+    {
+      "name":"Recombinant",
+      "id":"info_recombinant",
+      "link":"",
+      "description":"The call is at a recombinant site",
+      "displayable":true
+    },
+    {
+      "name":"HML",
+      "id":"info_hml",
+      "link":"",
+      "description":"Variant in homology region",
+      "displayable":true
+    },
+    {
+      "name":"CN",
+      "id":"info_cn",
+      "link":"",
+      "description":"Estimated copy number",
+      "displayable":true
+    },
+    {
+      "name":"JIDS",
+      "id":"info_jids",
+      "link":"",
+      "description":"IDs (from ID column) of calls associated with a joint genotype call in duplicated regions",
+      "displayable":true
+    },
+    {
+      "name":"MOSAIC",
+      "id":"info_mosaic",
+      "link":"",
+      "description":"Potential mosaic variant",
+      "displayable":true
+    },
+    {
+      "name":"FractionInformativeReads",
+      "id":"info_fractioninformativereads",
+      "link":"",
+      "description":"The fraction of informative reads out of the total reads",
+      "displayable":true
+    },
+    {
+      "name":"EVENTTYPE",
+      "id":"info_eventtype",
+      "link":"",
+      "description":"Type of associated event",
+      "displayable":true
+    },
+    {
+      "name":"TARGETED",
+      "id":"info_targeted",
+      "link":"",
+      "description":"The call is from a targeted caller",
+      "displayable":true
+    },
+    {
+      "name":"SoftClipRatio",
+      "id":"info_softclipratio",
+      "link":"",
+      "description":"Ratio of soft-clipped bases out of total bases supporting the variant",
+      "displayable":true
+    },
+    {
       "name":"Allele frequency Africa",
       "id":"info_af_afr",
       "link":"",
