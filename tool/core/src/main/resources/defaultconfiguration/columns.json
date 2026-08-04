@@ -894,6 +894,34 @@
       "displaytype":"prettyampersand"
     },
     {
+      "name": "SpliceAI DP ag",
+      "id": "info_csq_spliceai_pred_dp_ag",
+      "description": "Delta position for acceptor gain (DP_AG). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the creation of a new splice acceptor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP al",
+      "id": "info_csq_spliceai_pred_dp_al",
+      "description": "Delta position for acceptor loss (DP_AL). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the disruption or loss of an existing splice acceptor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP dg",
+      "id": "info_csq_spliceai_pred_dp_dg",
+      "description": "Delta position for donor gain (DP_DG). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the creation of a new splice donor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP dl",
+      "id": "info_csq_spliceai_pred_dp_dl",
+      "description": "Delta position for donor loss (DP_DL). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the disruption or loss of an existing splice donor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
       "name":"SpliceAI ag",
       "id":"info_csq_spliceai_pred_ds_ag",
       "description":"acceptor gain: SpliceAI is a deep neural network, developed by Illumina, Inc junctions from an arbitrary pre-mRNA transcript sequence. Delta score of a variant, defined as the maximum of (DS_AG, DS_AL, DS_DG, DS_DL), ranges from 0 to 1 and can be interpreted as the probability of the variant being splice-altering. The author-suggested cutoffs are: 0.2 (high recall); 0.5 (recommended); 0.8 (high precision)",
@@ -928,6 +956,13 @@
       "displayable":true,
       "sample": "0.5",
       "samplecomparator": ">"
+    },
+    {
+      "name": "SpliceAI Symbol",
+      "id": "info_csq_spliceai_pred_symbol",
+      "description": "The HGNC gene symbol for which the SpliceAI predictions (delta scores and positions) were calculated.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
     },
     {
       "name":"Mastermind",
