@@ -1103,7 +1103,7 @@
     },
     {
       "name":"PolyPhen-2 HDIV pred",
-      "id":"info_csq_polyphen2_hdiv_score",
+      "id":"info_csq_polyphen2_hdiv_pred",
       "description":"Polyphen2 HDIV score: Polyphen2 score based on HumDiv,(Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations. HumDiv-trained model should be used for evaluating rare alleles at loci potentially involved in complex phenotypes, dense mapping of regions identified by genome-wide association studies, and analysis of natural selection from sequence data, where even mildly deleterious alleles must be treated as damaging. Polyphen2 prediction based on HumDiv, D (probably damaging, HDIV score in [0.957,1] or rankscore in [0.55859,0.91137]), P (possibly damaging, HDIV score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and B (benign, HDIV score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff for binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e. the prediction is neutral if the HDIV score is smaller than 0.5 (rankscore is smaller than 0.38028), and deleterious if the HDIV score is larger than 0.5 (rankscore is larger than 0.38028). Multiple entries are separated by ;, corresponding to Uniprot_acc.",
       "link":"http://genetics.bwh.harvard.edu/pph2/dokuwiki/start",
       "displayable":true
