@@ -319,7 +319,7 @@
     },
     {
       "name":"position in protein sequence",
-      "id":"info_csq_cds_position",
+      "id":"info_csq_protein_position",
       "description":"Relative position of amino acid in protein",
       "displayable":true
     },
@@ -1082,13 +1082,6 @@
       "displaytype": "clinvaromims"
     },
     {
-      "name":"1000 Genomes AF",
-      "id":"info_csq_af",
-      "description":"1000 genomes allele frequency across all populations",
-      "link":"https://www.internationalgenome.org/home",
-      "displayable":true
-    },
-    {
       "name":"GnomAD genomes AC",
       "id":"info_csq_gnomadg_ac",
       "description":"Alternative allele count in the whole gnomAD genome samples (71,702 samples)",
@@ -1289,13 +1282,6 @@
       "displaytype":"prettyampersand"
     },
     {
-      "name":"ClinVar terms",
-      "id":"info_csq_clinvar_clndisdb",
-      "description":"ClinVar. Terms associated to variant. Those are HPO terms, SNOMED, OMIM, Orphanet, MedGen, Mondo, NCBI Mesh, EFO",
-      "link":"https://www.ncbi.nlm.nih.gov/clinvar/docs/spreadsheet/#condition",
-      "displayable":true
-    },
-    {
       "name":"ClinVar HGVS genome",
       "id":"info_csq_clinvar_clnhgvs",
       "description":"the HGVS  sequence name based on chromosome start",
@@ -1321,13 +1307,6 @@
       "id":"info_csq_clinvar_clnvc",
       "description":"Clinvar variation ID plus clinical significance. ClinVar uses standard terms for clinical significance recommended by an authoritative source when available. These standards include: five terms for Mendelian diseases recommended by ACMG/AMP plus non-standard terms alongside with combinations of terms",
       "link":"https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/",
-      "displayable":true
-    },
-    {
-      "name":"ClinVar SO term",
-      "id":"info_csq_clinvar_clnvcso",
-      "description":"Clinvar SO (Sequence Ontology) term",
-      "link":"https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html",
       "displayable":true
     },
     {
