@@ -30,7 +30,7 @@
       "link":"",
       "description":"The chromosome of the variant.",
       "sample":"chr2",
-      "range":"from 1 up to chromosome length",
+      "range":"1-22, X, Y, MT",
       "displayable":false
     },
     {
@@ -48,6 +48,104 @@
       "link":"https://pubmed.ncbi.nlm.nih.gov/31830260/",
       "description":"Each variant has a certain set of QC parameter such as coverage, allelic depth, base calling quality, strand bias etc. These parameter were extracted from validated variants of large scale public datasets and used to train a neural net model. In the analyzed dataset we assign PASS or FAIL to variants using this pretrained neural net model.",
       "displayable":false
+    },
+    {
+      "name":"RPA",
+      "id":"info_rpa",
+      "link":"",
+      "description":"Number of times tandem repeat unit is repeated in reference.",
+      "displayable":true
+    },
+    {
+      "name":"RU",
+      "id":"info_ru",
+      "link":"",
+      "description":"Tandem repeat unit (bases)",
+      "displayable":true
+    },
+    {
+      "name":"EVENT",
+      "id":"info_event",
+      "link":"",
+      "description":"Event name",
+      "displayable":true
+    },
+    {
+      "name":"TargetedCaller",
+      "id":"info_targetedcaller",
+      "link":"",
+      "description":"Targeted Caller Name",
+      "displayable":true
+    },
+    {
+      "name":"STR",
+      "id":"info_str",
+      "link":"",
+      "description":"Variant is in a short tandem repeat.",
+      "displayable":true
+    },
+    {
+      "name":"Recombinant",
+      "id":"info_recombinant",
+      "link":"",
+      "description":"The call is at a recombinant site",
+      "displayable":true
+    },
+    {
+      "name":"HML",
+      "id":"info_hml",
+      "link":"",
+      "description":"Variant in homology region",
+      "displayable":true
+    },
+    {
+      "name":"CN",
+      "id":"info_cn",
+      "link":"",
+      "description":"Estimated copy number",
+      "displayable":true
+    },
+    {
+      "name":"JIDS",
+      "id":"info_jids",
+      "link":"",
+      "description":"IDs (from ID column) of calls associated with a joint genotype call in duplicated regions",
+      "displayable":true
+    },
+    {
+      "name":"MOSAIC",
+      "id":"info_mosaic",
+      "link":"",
+      "description":"Potential mosaic variant",
+      "displayable":true
+    },
+    {
+      "name":"FractionInformativeReads",
+      "id":"info_fractioninformativereads",
+      "link":"",
+      "description":"The fraction of informative reads out of the total reads",
+      "displayable":true
+    },
+    {
+      "name":"EVENTTYPE",
+      "id":"info_eventtype",
+      "link":"",
+      "description":"Type of associated event",
+      "displayable":true
+    },
+    {
+      "name":"TARGETED",
+      "id":"info_targeted",
+      "link":"",
+      "description":"The call is from a targeted caller",
+      "displayable":true
+    },
+    {
+      "name":"SoftClipRatio",
+      "id":"info_softclipratio",
+      "link":"",
+      "description":"Ratio of soft-clipped bases out of total bases supporting the variant",
+      "displayable":true
     },
     {
       "name":"Allele frequency Africa",
@@ -98,28 +196,191 @@
       "displayable":true
     },
     {
-      "name":"Allele frequency Africa",
+      "name":"1000Genomes Allele frequency Africa",
       "id":"info_csq_afr_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":" Frequency of existing variant in 1000 Genomes combined African population.",
       "displayable":true
     },
     {
-      "name":"Allele frequency Native America",
+      "name":"1000Genomes Allele frequency Native America",
       "id":"info_csq_amr_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":"Frequency of existing variant in 1000 Genomes combined American population.",
       "displayable":true
     },
     {
-      "name":"Allele frequency East Asia",
+      "name":"1000Genomes Allele frequency East Asia",
       "id":"info_csq_eas_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":"Frequency of existing variant in 1000 Genomes combined East Asian population.",
       "displayable":true
+    },
+    {
+      "name":"1000Genomes Allele frequency Europe",
+      "id":"info_csq_eur_af",
+      "link":"",
+      "sample":"0.01",
+      "description":"Frequency of existing variant in 1000 Genomes combined European population.",
+      "displayable":true
+    },
+    {
+      "name":"1000Genomes Allele frequency South Asia",
+      "id":"info_csq_sas_af",
+      "link":"",
+      "sample":"0.01",
+      "description":"Frequency of existing variant in 1000 Genomes combined South Asian population.",
+      "displayable":true
+    },
+    {
+      "name": "gnomAD Exome Global AF",
+      "id": "info_csq_gnomade_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Global allele frequency across all populations in the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome African/Am. AF",
+      "id": "info_csq_gnomade_afr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the African/African American population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Latino/Admixed AF",
+      "id": "info_csq_gnomade_amr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Latino/Admixed American population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Ashkenazi Jewish AF",
+      "id": "info_csq_gnomade_asj_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Ashkenazi Jewish population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome East Asian AF",
+      "id": "info_csq_gnomade_eas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the East Asian population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome European (Finnish) AF",
+      "id": "info_csq_gnomade_fin_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the European (Finnish) population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Middle Eastern AF",
+      "id": "info_csq_gnomade_mid_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Middle Eastern population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Non-Finnish European AF",
+      "id": "info_csq_gnomade_nfe_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Non-Finnish European population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Remaining AF",
+      "id": "info_csq_gnomade_remaining_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the remaining individuals (those not cleanly assigning to a major population cohort) from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome South Asian AF",
+      "id": "info_csq_gnomade_sas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the South Asian population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Global AF",
+      "id": "info_csq_gnomadg_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Global allele frequency across all populations in the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome African/Am. AF",
+      "id": "info_csq_gnomadg_afr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the African/African American population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Amish AF",
+      "id": "info_csq_gnomadg_ami_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Amish population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Latino/Admixed AF",
+      "id": "info_csq_gnomadg_amr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Latino/Admixed American population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Ashkenazi Jewish AF",
+      "id": "info_csq_gnomadg_asj_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Ashkenazi Jewish population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome East Asian AF",
+      "id": "info_csq_gnomadg_eas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the East Asian population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome European (Finnish) AF",
+      "id": "info_csq_gnomadg_fin_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the European (Finnish) population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Middle Eastern AF",
+      "id": "info_csq_gnomadg_mid_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Middle Eastern population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Non-Finnish European AF",
+      "id": "info_csq_gnomadg_nfe_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Non-Finnish European population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Remaining AF",
+      "id": "info_csq_gnomadg_remaining_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the remaining individuals (those not cleanly assigning to a major population cohort) from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome South Asian AF",
+      "id": "info_csq_gnomadg_sas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the South Asian population from the gnomAD genomes dataset.",
+      "displayable": true
     },
     {
       "id":"info_csq_pubmed",
@@ -214,14 +475,26 @@
       "displayable":true
     },
     {
+      "name":"position in cDNA sequence",
+      "id":"info_csq_cdna_position",
+      "description":" Relative position of base pair in cDNA sequence",
+      "displayable":true
+    },
+    {
       "name":"position in coding sequence",
       "id":"info_csq_cds_position",
       "description":"Relative position of base pair in coding sequence",
       "displayable":true
     },
     {
+      "name":"amino acid change",
+      "id":"info_csq_amino_acids",
+      "description":"Reference/Alternative amino acid",
+      "displayable":true
+    },
+    {
       "name":"position in protein sequence",
-      "id":"info_csq_cds_position",
+      "id":"info_csq_protein_position",
       "description":"Relative position of amino acid in protein",
       "displayable":true
     },
@@ -248,6 +521,13 @@
       "name":"DNA strand",
       "id":"info_csq_strand",
       "description":"Is this variant on the positive strand of the DNA",
+      "displayable":true
+    },
+    {
+      "name":"FLAGS",
+      "id":"info_csq_flags",
+      "link":"",
+      "description":"Transcript quality flags: CDS 5' incomplete (cds_start_NF), CDS 3' incomplete (cds_end_NF)",
       "displayable":true
     },
     {
@@ -288,6 +568,20 @@
       "link":"https://www.ensembl.org/info/genome/genebuild/mane.html",
       "description":"NCBI Reference Sequence ID matched to Ensembl IDs; The MANE Project aims to produce a genome-wide transcript set that can be useful as a default set for display on genomics browsers and resources. For an Ensembl transcript to be designated as a MANE transcript it must perfectly align to GRCh38, have complete sequence identity with a corresponding RefSeq transcript and be high-confidence in terms of its overall support. tsl1 – all splice junctions of the transcript are supported by at least one non-suspect mRNA; tsl2 – the best supporting mRNA is flagged as suspect or the support is from multiple ESTs ",
       "displayable":true
+    },
+    {
+      "name": "MANE Select",
+      "id": "info_csq_mane_select",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Indicates if the transcript is the MANE Select transcript for the gene",
+      "displayable": true
+    },
+    {
+      "name": "MANE Plus Clinical",
+      "id": "info_csq_mane_plus_clinical",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Indicates if the transcript is the MANE Plus Clinical transcript for the gene",
+      "displayable": true
     },
     {
       "name":"Transcript support level",
@@ -352,6 +646,55 @@
       "displaytype": "uniparc"
     },
     {
+      "name": "RefSeq Match",
+      "id": "info_csq_refseq_match",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "The RefSeq transcript match status",
+      "displayable": true
+    },
+    {
+      "name": "Source",
+      "id": "info_csq_source",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "The source of the transcript (e.g., Ensembl)",
+      "displayable": true
+    },
+    {
+      "name": "RefSeq Offset",
+      "id": "info_csq_refseq_offset",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Offset between the Ensembl and RefSeq transcript coordinates",
+      "displayable": true
+    },
+    {
+      "name": "Given Ref",
+      "id": "info_csq_given_ref",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Reference allele from input",
+      "displayable": true
+    },
+    {
+      "name": "Used Ref",
+      "id": "info_csq_used_ref",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Reference allele used by VEP to calculate consequences",
+      "displayable": true
+    },
+    {
+      "name": "BAM Edit",
+      "id": "info_csq_bam_edit",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Indicates a BAM edit was applied",
+      "displayable": true
+    },
+    {
+      "name": "Gene Phenotype",
+      "id": "info_csq_gene_pheno",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Indicates if the gene that the variant maps to is associated with a phenotype, disease or trait",
+      "displayable": true
+    },
+    {
       "name":"SIFT",
       "id":"info_csq_sift",
       "description":"The SIFT prediction and/or score, with both given as prediction(score); SIFT predicts whether an amino acid substitution affects protein function based on sequence homology and the physical properties of amino acids. SIFT can be applied to naturally occurring nonsynonymous polymorphisms and laboratory-induced missense mutations. If SIFTori is smaller than 0.05 (rankscore>0.39575) the corresponding nsSNV is predicted as D(amaging); otherwise it is predicted as T(olerated)",
@@ -366,10 +709,25 @@
       "displayable":true
     },
     {
+      "name": "Domains",
+      "id": "info_csq_domains",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Multiple overlapping protein domains",
+      "displayable": true,
+      "displaytype": "prettyampersand"
+    },
+    {
       "name":"miRNA",
       "id":"info_csq_mirna",
       "description":"Variant on miRNA can take values: miRNA_loop; miRNA_loop&miRNA_stem; miRNA_stem",
       "displayable":true
+    },
+    {
+      "name": "HGVS Offset",
+      "id": "info_csq_hgvs_offset",
+      "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
+      "description": "Indicates offset used for HGVS annotation",
+      "displayable": true
     },
     {
       "name":"HGSV name",
@@ -387,7 +745,7 @@
       "displayable":true
     },
     {
-      "name":"1000Genomes alllele count",
+      "name":"1000Genomes allele count",
       "id":"info_csq_1000gp3_ac",
       "description":"Allele count of existing variant in 1000 Genomes (across all ancestries)",
       "link":"https://www.internationalgenome.org/home",
@@ -700,6 +1058,34 @@
       "displaytype":"prettyampersand"
     },
     {
+      "name": "SpliceAI DP ag",
+      "id": "info_csq_spliceai_pred_dp_ag",
+      "description": "Delta position for acceptor gain (DP_AG). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the creation of a new splice acceptor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP al",
+      "id": "info_csq_spliceai_pred_dp_al",
+      "description": "Delta position for acceptor loss (DP_AL). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the disruption or loss of an existing splice acceptor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP dg",
+      "id": "info_csq_spliceai_pred_dp_dg",
+      "description": "Delta position for donor gain (DP_DG). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the creation of a new splice donor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
+      "name": "SpliceAI DP dl",
+      "id": "info_csq_spliceai_pred_dp_dl",
+      "description": "Delta position for donor loss (DP_DL). Indicates the distance in base pairs relative to the variant where SpliceAI predicts the disruption or loss of an existing splice donor site.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
+    },
+    {
       "name":"SpliceAI ag",
       "id":"info_csq_spliceai_pred_ds_ag",
       "description":"acceptor gain: SpliceAI is a deep neural network, developed by Illumina, Inc junctions from an arbitrary pre-mRNA transcript sequence. Delta score of a variant, defined as the maximum of (DS_AG, DS_AL, DS_DG, DS_DL), ranges from 0 to 1 and can be interpreted as the probability of the variant being splice-altering. The author-suggested cutoffs are: 0.2 (high recall); 0.5 (recommended); 0.8 (high precision)",
@@ -734,6 +1120,13 @@
       "displayable":true,
       "sample": "0.5",
       "samplecomparator": ">"
+    },
+    {
+      "name": "SpliceAI Symbol",
+      "id": "info_csq_spliceai_pred_symbol",
+      "description": "The HGNC gene symbol for which the SpliceAI predictions (delta scores and positions) were calculated.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30661751/",
+      "displayable": true
     },
     {
       "name":"Mastermind",
@@ -909,7 +1302,7 @@
     },
     {
       "name":"PolyPhen-2 HDIV pred",
-      "id":"info_csq_polyphen2_hdiv_score",
+      "id":"info_csq_polyphen2_hdiv_pred",
       "description":"Polyphen2 HDIV score: Polyphen2 score based on HumDiv,(Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations. HumDiv-trained model should be used for evaluating rare alleles at loci potentially involved in complex phenotypes, dense mapping of regions identified by genome-wide association studies, and analysis of natural selection from sequence data, where even mildly deleterious alleles must be treated as damaging. Polyphen2 prediction based on HumDiv, D (probably damaging, HDIV score in [0.957,1] or rankscore in [0.55859,0.91137]), P (possibly damaging, HDIV score in [0.454,0.956] or rankscore in [0.37043,0.55681]) and B (benign, HDIV score in [0,0.452] or rankscore in [0.03061,0.36974]). Score cutoff for binary classification is 0.5 for HDIV score or 0.38028 for rankscore, i.e. the prediction is neutral if the HDIV score is smaller than 0.5 (rankscore is smaller than 0.38028), and deleterious if the HDIV score is larger than 0.5 (rankscore is larger than 0.38028). Multiple entries are separated by ;, corresponding to Uniprot_acc.",
       "link":"http://genetics.bwh.harvard.edu/pph2/dokuwiki/start",
       "displayable":true
@@ -982,13 +1375,6 @@
       "link":"https://www.omim.org/about",
       "displayable": true,
       "displaytype": "clinvaromims"
-    },
-    {
-      "name":"1000 Genomes AF",
-      "id":"info_csq_af",
-      "description":"1000 genomes allele frequency across all populations",
-      "link":"https://www.internationalgenome.org/home",
-      "displayable":true
     },
     {
       "name":"GnomAD genomes AC",
@@ -1160,6 +1546,13 @@
       "displaytype": "clinvarid"
     },
     {
+      "name": "ClinVar Allele ID",
+      "id": "info_csq_clinvar_alleleid",
+      "description": "The ClinVar Allele ID, an integer identifier assigned to each variation by ClinVar.",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/help/",
+      "displayable": true
+    },
+    {
       "name":"ClinVar clinical significance",
       "id":"info_csq_clinvar_clnsig",
       "description":"ClinVar uses standard terms for clinical significance recommended by an authoritative source when available. These standards include: Five terms for Mendelian diseases recommended by ACMG/AMP plus non-standard terms alongside with combinations of terms",
@@ -1191,11 +1584,20 @@
       "displaytype":"prettyampersand"
     },
     {
-      "name":"ClinVar terms",
-      "id":"info_csq_clinvar_clndisdb",
-      "description":"ClinVar. Terms associated to variant. Those are HPO terms, SNOMED, OMIM, Orphanet, MedGen, Mondo, NCBI Mesh, EFO",
-      "link":"https://www.ncbi.nlm.nih.gov/clinvar/docs/spreadsheet/#condition",
-      "displayable":true
+      "name": "ClinVar Included Condition",
+      "id": "info_csq_clinvar_clndnincl",
+      "description": "For included variants (e.g., in haplotypes): ClinVar's preferred disease name for the concept specified by disease identifiers in CLNDISDB.",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/spreadsheet/#condition",
+      "displayable": true,
+      "displaytype": "prettyampersand"
+    },
+    {
+      "name": "ClinVar Included Terms",
+      "id": "info_csq_clinvar_clndisdbincl",
+      "description": "For included variants (e.g., in haplotypes): Tag-value pairs of disease database name and identifier (e.g., OMIM, MedGen, Orphanet).",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/spreadsheet/#condition",
+      "displayable": true,
+      "displaytype": "prettyampersand"
     },
     {
       "name":"ClinVar HGVS genome",
@@ -1209,7 +1611,8 @@
       "id":"info_csq_clinvar_clnsigconf",
       "description":"ClinVar uses standard terms for clinical significance recommended by an authoritative source when available. These standards include: five terms for Mendelian diseases recommended by ACMG/AMP plus non-standard terms alongside with combinations of terms. This field also includes how many times ClinVar the particular variant has been rated with each clinical significance term.",
       "link":"https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/",
-      "displayable":true
+      "displayable":true,
+      "displaytype": "prettyampersand"
     },
     {
       "name":"ClinVar variation ID and significance",
@@ -1233,11 +1636,12 @@
       "displayable":true
     },
     {
-      "name":"ClinVar SO term",
-      "id":"info_csq_clinvar_clnvcso",
-      "description":"Clinvar SO (Sequence Ontology) term",
-      "link":"https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html",
-      "displayable":true
+      "name": "ClinVar Variant Identifiers",
+      "id": "info_csq_clinvar_clnvi",
+      "description": "The variant's clinical sources reported as tag-value pairs of database and variant identifier (e.g., UniProtKB, LOVD).",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/help/",
+      "displayable": true,
+      "displaytype": "prettyampersand"
     },
     {
       "name":"ClinVar Symbol",
@@ -1247,12 +1651,41 @@
       "displayable":true
     },
     {
+      "name": "ClinVar Gene Info",
+      "id": "info_csq_clinvar_geneinfo",
+      "description": "Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (:) and each pair is separated by a delimiter.",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/help/",
+      "displayable": true,
+      "displaytype": "prettyampersand"
+    },
+    {
       "name":"ClinVar variant description",
       "id":"info_csq_clinvar_mc",
       "description":"ClinVar Sequence Ontology term (SO) including description of variant",
       "link":"https://www.ncbi.nlm.nih.gov/clinvar/intro/",
       "displayable":true,
       "displaytype":"prettyampersand"
+    },
+    {
+      "name": "ClinVar Allele Origin",
+      "id": "info_csq_clinvar_origin",
+      "description": "Allele origin. A bit-field where values indicate: 0 (unknown), 1 (germline), 2 (somatic), 4 (inherited), 8 (paternal), 16 (maternal), 32 (de-novo), 64 (biparental), 128 (uniparental), 256 (not-tested), 512 (tested-inconclusive), 1073741824 (other).",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/help/",
+      "displayable": true
+    },
+    {
+      "name": "dbSNP ID",
+      "id": "info_csq_clinvar_rs",
+      "description": "dbSNP Reference SNP (rs) identifier for the variant.",
+      "link": "https://www.ncbi.nlm.nih.gov/snp/",
+      "displayable": true
+    },
+    {
+      "name": "ClinVar Suspect Reason",
+      "id": "info_csq_clinvar_ssr",
+      "description": "Variant Suspect Reason Codes. Values include: 0 (unspecified), 1 (Paralog), 2 (byEST), 4 (oldAlign), 8 (Para_EST), 16 (1kg_failed), 1024 (other).",
+      "link": "https://www.ncbi.nlm.nih.gov/clinvar/docs/help/",
+      "displayable": true
     }
   ]
 }
