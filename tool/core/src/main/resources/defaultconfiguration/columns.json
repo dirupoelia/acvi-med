@@ -73,8 +73,8 @@
     {
       "name":"TargetedCaller",
       "id":"info_targetedcaller",
-      "link":"Targeted Caller Name",
-      "description":"",
+      "link":"",
+      "description":"Targeted Caller Name",
       "displayable":true
     },
     {
@@ -196,27 +196,27 @@
       "displayable":true
     },
     {
-      "name":"Allele frequency Africa",
+      "name":"1000Genomes Allele frequency Africa",
       "id":"info_csq_afr_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":" Frequency of existing variant in 1000 Genomes combined African population.",
       "displayable":true
     },
     {
-      "name":"Allele frequency Native America",
+      "name":"1000Genomes Allele frequency Native America",
       "id":"info_csq_amr_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":"Frequency of existing variant in 1000 Genomes combined American population.",
       "displayable":true
     },
     {
-      "name":"Allele frequency East Asia",
+      "name":"1000Genomes Allele frequency East Asia",
       "id":"info_csq_eas_af",
       "link":"",
       "sample":"0.01",
-      "description":"The frequency of the allele in the given population.",
+      "description":"Frequency of existing variant in 1000 Genomes combined East Asian population.",
       "displayable":true
     },
     {
@@ -581,7 +581,7 @@
       "displayable":true
     },
     {
-      "name":"1000Genomes alllele count",
+      "name":"1000Genomes allele count",
       "id":"info_csq_1000gp3_ac",
       "description":"Allele count of existing variant in 1000 Genomes (across all ancestries)",
       "link":"https://www.internationalgenome.org/home",
