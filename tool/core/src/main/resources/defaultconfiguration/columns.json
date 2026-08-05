@@ -30,7 +30,7 @@
       "link":"",
       "description":"The chromosome of the variant.",
       "sample":"chr2",
-      "range":"from 1 up to chromosome length",
+      "range":"1-22, X, Y, MT",
       "displayable":false
     },
     {
@@ -713,7 +713,8 @@
       "id": "info_csq_domains",
       "link": "https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout",
       "description": "Multiple overlapping protein domains",
-      "displayable": true
+      "displayable": true,
+      "displaytype": "prettyampersand"
     },
     {
       "name":"miRNA",
@@ -1610,7 +1611,8 @@
       "id":"info_csq_clinvar_clnsigconf",
       "description":"ClinVar uses standard terms for clinical significance recommended by an authoritative source when available. These standards include: five terms for Mendelian diseases recommended by ACMG/AMP plus non-standard terms alongside with combinations of terms. This field also includes how many times ClinVar the particular variant has been rated with each clinical significance term.",
       "link":"https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/",
-      "displayable":true
+      "displayable":true,
+      "displaytype": "prettyampersand"
     },
     {
       "name":"ClinVar variation ID and significance",
