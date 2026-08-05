@@ -236,6 +236,153 @@
       "displayable":true
     },
     {
+      "name": "gnomAD Exome Global AF",
+      "id": "info_csq_gnomade_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Global allele frequency across all populations in the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome African/Am. AF",
+      "id": "info_csq_gnomade_afr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the African/African American population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Latino/Admixed AF",
+      "id": "info_csq_gnomade_amr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Latino/Admixed American population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Ashkenazi Jewish AF",
+      "id": "info_csq_gnomade_asj_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Ashkenazi Jewish population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome East Asian AF",
+      "id": "info_csq_gnomade_eas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the East Asian population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome European (Finnish) AF",
+      "id": "info_csq_gnomade_fin_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the European (Finnish) population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Middle Eastern AF",
+      "id": "info_csq_gnomade_mid_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Middle Eastern population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Non-Finnish European AF",
+      "id": "info_csq_gnomade_nfe_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Non-Finnish European population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome Remaining AF",
+      "id": "info_csq_gnomade_remaining_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the remaining individuals (those not cleanly assigning to a major population cohort) from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Exome South Asian AF",
+      "id": "info_csq_gnomade_sas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the South Asian population from the gnomAD exomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Global AF",
+      "id": "info_csq_gnomadg_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Global allele frequency across all populations in the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome African/Am. AF",
+      "id": "info_csq_gnomadg_afr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the African/African American population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Amish AF",
+      "id": "info_csq_gnomadg_ami_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Amish population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Latino/Admixed AF",
+      "id": "info_csq_gnomadg_amr_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Latino/Admixed American population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Ashkenazi Jewish AF",
+      "id": "info_csq_gnomadg_asj_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Ashkenazi Jewish population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome East Asian AF",
+      "id": "info_csq_gnomadg_eas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the East Asian population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome European (Finnish) AF",
+      "id": "info_csq_gnomadg_fin_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the European (Finnish) population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Middle Eastern AF",
+      "id": "info_csq_gnomadg_mid_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Middle Eastern population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Non-Finnish European AF",
+      "id": "info_csq_gnomadg_nfe_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the Non-Finnish European population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome Remaining AF",
+      "id": "info_csq_gnomadg_remaining_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the remaining individuals (those not cleanly assigning to a major population cohort) from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
+      "name": "gnomAD Genome South Asian AF",
+      "id": "info_csq_gnomadg_sas_af",
+      "link": "https://gnomad.broadinstitute.org/news/2024-04-gnomad-v4-1/",
+      "description": "Allele frequency in the South Asian population from the gnomAD genomes dataset.",
+      "displayable": true
+    },
+    {
       "id":"info_csq_pubmed",
       "name":"Related PubMed articles",
       "description":"PubMed articles associated with this mutation.",
