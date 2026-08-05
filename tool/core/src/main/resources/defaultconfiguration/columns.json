@@ -220,6 +220,22 @@
       "displayable":true
     },
     {
+      "name":"1000Genomes Allele frequency Europe",
+      "id":"info_csq_eur_af",
+      "link":"",
+      "sample":"0.01",
+      "description":"Frequency of existing variant in 1000 Genomes combined European population.",
+      "displayable":true
+    },
+    {
+      "name":"1000Genomes Allele frequency South Asia",
+      "id":"info_csq_sas_af",
+      "link":"",
+      "sample":"0.01",
+      "description":"Frequency of existing variant in 1000 Genomes combined South Asian population.",
+      "displayable":true
+    },
+    {
       "id":"info_csq_pubmed",
       "name":"Related PubMed articles",
       "description":"PubMed articles associated with this mutation.",
