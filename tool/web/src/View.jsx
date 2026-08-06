@@ -448,13 +448,28 @@ class View extends React.Component {
       {
           genome: "hg38",
           locus: (this.state.variant.chrom + ":" + this.state.variant.pos),
+		  reference:{
+			id: 'hg38',
+			fastaURL: "https://1000genomes.s3.amazonaws.com/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+            indexURL: "https://1000genomes.s3.amazonaws.com/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai",
+			cytobandURL: "/cytoBandIdeo.txt.gz"
+		  },
           tracks: [
               {
                   "name": this.props.matchProps.name,
                   "url": Config.apiBaseUrl + this.state.variant.igvUrl,
                   "indexURL": Config.apiBaseUrl + this.state.variant.igvIndexUrl,
                   "format": this.state.variant.igvFormat //cram or bam
-              }
+              },
+			  {
+				"name": "Refseq Genes",
+				"format": "refgene",
+				"id": "hg38_genes",
+				"url": "/ncbiRefSeq.txt.gz",
+				"indexed": false,
+				"order": 1000000,
+				"infoURL": "https://www.ncbi.nlm.nih.gov/gene/?term=$$"
+				}
           ]
       };
 
