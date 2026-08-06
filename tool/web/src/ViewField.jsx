@@ -287,7 +287,7 @@ class ViewField extends React.Component {
           {item.name}
         </span>
         <span className="rightValue">
-          <a target="_blank" href={"https://www.lrg-sequence.org/search/?query=" + value.split(".")[0]}>{value}</a>
+          <a target="_blank" href={"https://www.ensembl.org/Homo_sapiens/Transcript/Summary?t=" + value.split(".")[0]}>{value}</a>
         </span>
       </span>;   
   }

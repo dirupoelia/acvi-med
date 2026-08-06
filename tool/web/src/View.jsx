@@ -555,7 +555,13 @@ class View extends React.Component {
             </tr>
             <tr>
               <td colspan="5">
-                <a href={"https://gnomad.broadinstitute.org/variant/" + this.getLocalization() + "?dataset=gnomad_r3"} target="_blank">View this variant on gnomAd</a> | <a href={"https://bravo.sph.umich.edu/freeze8/hg38/variant/snv/" + this.getLocalization()} target="_blank">View this variant on TopMed Bravo</a> | <a target="_blank" href={"https://www.lrg-sequence.org/search/?query=" + this.state.variant?.info["info_csq_hgvsc"]?.split(".")[0]}>View this transcript on LRG</a> | <a href={"https://franklin.genoox.com/clinical-db/variant/snp/" + this.state.variant.chrom + "-" + this.state.variant.pos + "-" + this.state.variant.ref + "-" + this.state.variant.alt} target={"_blank"}>View this variant on Franklin</a> | <a href={"https://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=" + this.state.variant.chrom + ":" + this.state.variant.pos} target="_blank">View this on UCSC</a> | <a href={"https://varsome.com/variant/hg38/" + this.getLocalization() + "?annotation-mode=germline"} target="_blank">View this on Varsome</a> {this.renderClinvarLink()}
+                {' '}<a href={"https://gnomad.broadinstitute.org/variant/" + this.getLocalization() + "?dataset=gnomad_r4"} target="_blank">View variant on gnomAd</a> |
+				{' '}<a href={"https://bravo.sph.umich.edu/variant.html?id=" + this.getLocalization()} target="_blank">View variant on TopMed Bravo</a> |
+				{' '}{this.renderTranscriptLink()} |
+				{' '}<a href={"https://franklin.genoox.com/clinical-db/variant/snp/" + this.state.variant.chrom + "-" + this.state.variant.pos + "-" + this.state.variant.ref + "-" + this.state.variant.alt + "-hg38"} target={"_blank"}>View variant on Franklin</a> |
+				{' '}<a href={"https://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=" + this.state.variant.chrom + ":" + this.state.variant.pos} target="_blank">View variant on UCSC</a> |
+				{' '}<a href={"https://varsome.com/variant/hg38/" + this.getLocalization() + "?annotation-mode=germline"} target="_blank">View variant on Varsome</a>
+				{this.renderClinvarLink()}
               </td>
             </tr>
           </table>
@@ -593,10 +599,26 @@ class View extends React.Component {
       </div>;
   }
 
+  renderTranscriptLink(){
+    let feature = this.state.variant?.info["info_csq_feature"];
+
+    // If there is no transcript feature, return nothing
+    if (feature == null) {
+        return "";
+    }
+
+    // Check if it's a RefSeq (NCBI) or Ensembl transcript
+    if (feature.startsWith("NM")) {
+        return <a target="_blank" href={"https://www.ncbi.nlm.nih.gov/nuccore/" + feature}>View transcript on NCBI</a>;
+    } else {
+        return <a target="_blank" href={"https://www.ensembl.org/Homo_sapiens/Transcript/Summary?t=" + feature.split(".")[0]}>View transcript on Ensembl</a>;
+    }
+  }
+
   renderClinvarLink() {
     let id = this.state.variant.info["info_csq_clinvar"];
     if (id != null) {
-        return <span> | <a target="_blank" href={"https://www.ncbi.nlm.nih.gov/clinvar/variation/" + id}>View this variant on ClinVar</a></span>;
+        return <span> | <a target="_blank" href={"https://www.ncbi.nlm.nih.gov/clinvar/variation/" + id}>View variant on ClinVar</a></span>;
     }
 
     return "";
