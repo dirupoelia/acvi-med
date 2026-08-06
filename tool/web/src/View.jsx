@@ -509,7 +509,7 @@ class View extends React.Component {
         </div>
         <div className="halfinlineblockleft">
           <table className="top">
-            <tr><td className="key">Sample</td><td className="value">{this.props.matchProps.name}</td></tr>
+            <tr><td className="key">Sample</td><td className="value"><div title={this.props.matchProps.name} style={{ maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{this.props.matchProps.name}</div></td></tr>
             <tr><td className="key">Chromosome</td><td className="value">{this.state.variant.chrom}</td></tr>
             <tr><td className="key">Position</td><td className="value">{this.state.variant.pos}</td></tr>
             <tr><td className="key">Reference bases</td><td className="value">{this.state.variant.ref}</td></tr>
