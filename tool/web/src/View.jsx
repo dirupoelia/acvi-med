@@ -403,25 +403,80 @@ class View extends React.Component {
       return "";
     }
 
-    return <div className="alleleFrequencies">
-        {sorted.map((item) => {
-          return <div> 
-              <div className="graphBarText" title={item.description}>
-                <b>{item.name}</b>
-                <div className="rightAlignClear">
-                  {Number(item.value).toFixed(4)}
-                </div>
-              </div>               
-              <div className="graphBarBackground">         
-                <div className="graphBar" style={{"width": (100 * item.value + "%")}}></div>
-              </div>
+    // Configurable threshold labels
+    let threshold5_label = "< 5%";
+    let threshold1_label = "< 1%";
+
+    // Find the top frequency (used to check if we start the list below a threshold)
+    let topFreq = sorted[0].value;
+
+    // Helper function to draw the dashed lines
+    const renderThreshold = (label, key) => (
+      <div key={key} style={{ display: "flex", alignItems: "center", margin: "6px 0", color: "#dc0000", fontSize: "0.85em", fontWeight: "bold", opacity: 0.6 }}>
+        <div style={{ flex: 1, borderTop: "1px dashed #dc0000" }}></div>
+        <span style={{ padding: "0 8px" }}>{label}</span>
+        <div style={{ flex: 1, borderTop: "1px dashed #dc0000" }}></div>
+      </div>
+    );
+
+    let elements = [];
+    let drawn5 = false;
+    let drawn1 = false;
+
+    // Check if we start the list already below the thresholds (renders at the very top)
+    // Only draw the < 5% line at the top if the highest frequency is between 1% and 5%
+    if (topFreq < 0.05 && topFreq >= 0.01) {
+      elements.push(renderThreshold(threshold5_label, "thresh5"));
+      drawn5 = true;
+    }
+    if (topFreq < 0.01) {
+      elements.push(renderThreshold(threshold1_label, "thresh1"));
+      drawn1 = true;
+      drawn5 = true; // Block the < 5% line from ever appearing
+    }
+
+    // Loop through the sorted items and insert dividers as we cross them
+    sorted.forEach((item, index) => {
+      // Check if we just crossed below 5% (middle of the list)
+      if (!drawn5 && item.value < 0.05) {
+        elements.push(renderThreshold(threshold5_label, "thresh5"));
+        drawn5 = true;
+      }
+      // Check if we just crossed below 1% (middle of the list)
+      if (!drawn1 && item.value < 0.01) {
+        elements.push(renderThreshold(threshold1_label, "thresh1"));
+        drawn1 = true;
+      }
+
+      // Add the actual frequency bar
+      elements.push(
+        <div key={"bar" + index}> 
+          <div className="graphBarText" title={item.description}>
+            <b>{item.name}</b>
+            <div className="rightAlignClear">
+              {Number(item.value).toFixed(4)}
             </div>
-        })}      
-        <span onClick={(e) => this.toggleAlleleFrequencyInformation()} className="informationButton informationButtonRight"><i class="bi bi-info-circle-fill"></i></span>
+          </div>               
+          <div className="graphBarBackground">         
+            <div className="graphBar" style={{"width": (100 * item.value + "%")}}></div>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <div className="alleleFrequencies">
+        {elements}
+        
+        <span style={{ marginLeft: "5px" }} onClick={(e) => this.toggleAlleleFrequencyInformation()} className="informationButton informationButtonRight">
+          <i className="bi bi-info-circle-fill"></i>
+        </span>
         <div className={"information " + (this.state.showAlleleFrequencyInformation ? "" : "hidden")}>
-          This list shows the 10 highest allele frequencies among all available allele frequencies.
+          This list shows the 10 highest allele frequencies among all available allele frequencies. 
+          <br/><b>Note:</b> Horizontal dashed lines categorize the variants against the 1% and 5% clinical thresholds.
         </div>
       </div>
+    );
   }
 
   /**
