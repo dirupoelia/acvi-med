@@ -361,7 +361,14 @@ class View extends React.Component {
     if (chart.series.length == 0) {
       return "";
     }
-    return <Chart options={chart.options} series={chart.series} type="polarArea" />
+    return (
+      <div className="pathogenicityScores">
+        <div style={{ marginBottom: "10px" }}>
+          <b>Pathogenicity Scores</b>
+        </div>
+        <Chart options={chart.options} series={chart.series} type="polarArea" />
+      </div>
+    );
   }
 
   renderAlleleFrequencies() {
@@ -466,15 +473,22 @@ class View extends React.Component {
 
     return (
       <div className="alleleFrequencies">
-        {elements}
-        
-        <span style={{ marginLeft: "5px" }} onClick={(e) => this.toggleAlleleFrequencyInformation()} className="informationButton informationButtonRight">
-          <i className="bi bi-info-circle-fill"></i>
-        </span>
+        {/* Title and Info Button at the Top */}
+        <div style={{ marginBottom: "10px" }}>
+            <b>Top 10 Frequencies</b>
+            <span onClick={(e) => this.toggleAlleleFrequencyInformation()} className="informationButton">
+            <i style={{ marginLeft: "5px", cursor: "pointer" }} className="bi bi-info-circle-fill"></i>
+            </span>
+        </div>
+
+        {/* Information box */}
         <div className={"information " + (this.state.showAlleleFrequencyInformation ? "" : "hidden")}>
           This list shows the 10 highest allele frequencies among all available allele frequencies. 
-          <br/><b>Note:</b> Horizontal dashed lines categorize the variants against the 1% and 5% clinical thresholds.
+          <br/><b>Note:</b> Horizontal dashed lines (such as {threshold5_label} or {threshold1_label}) categorize the variants against clinical thresholds.
         </div>
+
+        {/* The sorted list */}
+        {elements}
       </div>
     );
   }
