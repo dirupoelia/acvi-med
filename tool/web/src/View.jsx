@@ -365,7 +365,23 @@ class View extends React.Component {
   }
 
   renderAlleleFrequencies() {
-    let frequencies = ["info_csq_gnomad_genomes_af", "info_csq_gnomad_genomes_afr_af", "info_csq_gnomad_genomes_ami_af", "info_csq_gnomad_genomes_amr_af", "info_csq_gnomad_genomes_asj_af", "info_csq_gnomad_genomes_eas_af", "info_csq_gnomad_genomes_fin_af", "info_csq_gnomad_genomes_nfe_af", "info_csq_gnomad_genomes_sas_af", "info_csq_1000gp3_af", "info_csq_1000gp3_afr_af", "info_csq_1000gp3_amr_af", "info_csq_1000gp3_eas_af", "info_csq_1000gp3_eur_af", "info_csq_1000gp3_sas_af", "info_csq_gnomad_af", "info_csq_gnomad_afr_af", "info_csq_gnomad_amr_af", "info_csq_gnomad_asj_af", "info_csq_gnomad_eas_af", "info_csq_gnomad_fin_af", "info_csq_gnomad_nfe_af", "info_csq_gnomad_oth_af", "info_csq_gnomad_sas_af", "info_csq_gnomadg_af","info_csq_gnomadg_controls_af","info_csq_gnomadg_af_afr","info_csq_gnomadg_af_amr","info_csq_gnomadg_af_asj","info_csq_gnomadg_af_eas","info_csq_gnomadg_af_fin", "info_csq_gnomadg_af_nfe","info_csq_gnomadg_af_oth"];
+    // The original list of frequencies IDs
+    let legacyFrequencies = ["info_csq_gnomad_genomes_af", "info_csq_gnomad_genomes_afr_af", "info_csq_gnomad_genomes_ami_af", "info_csq_gnomad_genomes_amr_af", "info_csq_gnomad_genomes_asj_af", "info_csq_gnomad_genomes_eas_af", "info_csq_gnomad_genomes_fin_af", "info_csq_gnomad_genomes_nfe_af", "info_csq_gnomad_genomes_sas_af", "info_csq_1000gp3_af", "info_csq_1000gp3_afr_af", "info_csq_1000gp3_amr_af", "info_csq_1000gp3_eas_af", "info_csq_1000gp3_eur_af", "info_csq_1000gp3_sas_af", "info_csq_gnomad_af", "info_csq_gnomad_afr_af", "info_csq_gnomad_amr_af", "info_csq_gnomad_asj_af", "info_csq_gnomad_eas_af", "info_csq_gnomad_fin_af", "info_csq_gnomad_nfe_af", "info_csq_gnomad_oth_af", "info_csq_gnomad_sas_af", "info_csq_gnomadg_af","info_csq_gnomadg_controls_af","info_csq_gnomadg_af_afr","info_csq_gnomadg_af_amr","info_csq_gnomadg_af_asj","info_csq_gnomadg_af_eas","info_csq_gnomadg_af_fin", "info_csq_gnomadg_af_nfe","info_csq_gnomadg_af_oth"];
+
+    // VEP 115 frequencies IDs
+    let newFrequencies = [
+        "info_csq_eur_af", "info_csq_sas_af",
+        "info_csq_gnomade_af", "info_csq_gnomade_afr_af", "info_csq_gnomade_amr_af", "info_csq_gnomade_asj_af",
+        "info_csq_gnomade_eas_af", "info_csq_gnomade_fin_af", "info_csq_gnomade_mid_af", "info_csq_gnomade_nfe_af",
+        "info_csq_gnomade_remaining_af", "info_csq_gnomade_sas_af",
+        "info_csq_gnomadg_af", "info_csq_gnomadg_afr_af", "info_csq_gnomadg_ami_af", "info_csq_gnomadg_amr_af",
+        "info_csq_gnomadg_asj_af", "info_csq_gnomadg_eas_af", "info_csq_gnomadg_fin_af", "info_csq_gnomadg_mid_af",
+        "info_csq_gnomadg_nfe_af", "info_csq_gnomadg_remaining_af", "info_csq_gnomadg_sas_af"
+    ];
+
+    // Merge the frequencies IDs in a single const
+    const frequencies = [...legacyFrequencies, ...newFrequencies];
+
 
     let pairs = [];
     for (var i = 0; i < frequencies.length; i++) {
