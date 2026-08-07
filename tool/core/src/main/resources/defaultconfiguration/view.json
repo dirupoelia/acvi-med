@@ -88,17 +88,17 @@
     },
     {
       "title": "Allele frequencies",
-      "fields": [],
+      "fields": ["info_csq_max_af", "info_csq_max_af_pops"],
       "subchapters": [
         {
           "title": "Genomes",
-          "fields": ["info_af_raw", "info_controls_af_popmax", "info_af_afr", "info_af_amr", "info_af_asj", "info_af_eas", "info_af_nfe", "info_af_oth", "info_csq_af","info_csq_gnomadg_ac","info_csq_gnomadg_af","info_csq_gnomadg_controls_ac","info_csq_gnomadg_controls_af","info_csq_gnomadg_controls_nhomalt", "info_csq_gnomadg_nhomalt_nfe","info_csq_gnomadg_af_afr","info_csq_gnomadg_af_amr","info_csq_gnomadg_af_asj","info_csq_gnomadg_af_eas","info_csq_gnomadg_af_fin", "info_csq_gnomadg_af_nfe","info_csq_gnomadg_af_oth"],
-          "subchapters": []
+          "fields": ["info_af_raw", "info_controls_af_popmax", "info_af_afr", "info_af_amr", "info_af_asj", "info_af_eas", "info_af_nfe", "info_af_oth", "info_csq_af", "info_csq_afr_af", "info_csq_amr_af", "info_csq_eas_af", "info_csq_eur_af", "info_csq_sas_af", "info_csq_gnomadg_ac","info_csq_gnomadg_af","info_csq_gnomadg_controls_ac","info_csq_gnomadg_controls_af","info_csq_gnomadg_controls_nhomalt", "info_csq_gnomadg_nhomalt_nfe","info_csq_gnomadg_af_afr","info_csq_gnomadg_af_amr","info_csq_gnomadg_af_asj","info_csq_gnomadg_af_eas","info_csq_gnomadg_af_fin", "info_csq_gnomadg_af_nfe","info_csq_gnomadg_af_oth", "info_csq_gnomadg_afr_af","info_csq_gnomadg_amr_af","info_csq_gnomadg_asj_af","info_csq_gnomadg_eas_af","info_csq_gnomadg_fin_af", "info_csq_gnomadg_nfe_af", "info_csq_gnomadg_sas_af","info_csq_gnomadg_oth_af", "info_csq_gnomadg_mid_af", "info_csq_gnomadg_ami_af", "info_csq_gnomadg_remaining_af"], 
+		  "subchapters": []
         },
         {
           "title": "Exomes",
-          "fields": ["info_csq_gnomad_af", "info_csq_gnomad_afr_af", "info_csq_gnomad_amr_af", "info_csq_gnomad_asj_af", "info_csq_gnomad_eas_af", "info_csq_gnomad_fin_af", "info_csq_gnomad_nfe_af", "info_csq_gnomad_oth_af", "info_csq_gnomad_sas_af"],
-          "subchapters": []
+          "fields": ["info_csq_gnomad_af", "info_csq_gnomad_afr_af", "info_csq_gnomad_amr_af", "info_csq_gnomad_asj_af", "info_csq_gnomad_eas_af", "info_csq_gnomad_fin_af", "info_csq_gnomad_nfe_af", "info_csq_gnomad_oth_af", "info_csq_gnomad_sas_af", "info_csq_gnomade_af" ,"info_csq_gnomade_afr_af", "info_csq_gnomade_amr_af", "info_csq_gnomade_asj_af", "info_csq_gnomade_eas_af", "info_csq_gnomade_fin_af", "info_csq_gnomade_nfe_af", "info_csq_gnomade_oth_af", "info_csq_gnomade_sas_af", "info_csq_gnomade_mid_af", "info_csq_gnomade_remaining_af"],
+		  "subchapters": []
         }
       ]
     }
