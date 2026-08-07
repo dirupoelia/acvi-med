@@ -424,6 +424,104 @@ class View extends React.Component {
       </div>
   }
 
+  /**
+  * Generates the configuration and data for a Radar chart visualizing population frequencies.
+  * Plots the major continental populations from gnomAD Exomes and Genomes, overlaid on top of 
+  * two fixed static series representing the 1% and 5% clinical frequency thresholds.
+  */
+  getFrequencyRadarChart() {
+    let info = this.state.variant.info;
+    
+    let categories = ['African', 'Latino/Amr', 'East Asian', 'European (NFE)', 'South Asian', 'Finnish', 'Ashkenazi'];
+
+    // Helper function to retrieve the frequency (in %)
+    const getFreq = (id) => {
+        let val = info[id];
+        return val != null ? parseFloat((val * 100).toFixed(4)) : 0;
+    };
+
+    let exomes = [
+      getFreq("info_csq_gnomade_afr_af"), getFreq("info_csq_gnomade_amr_af"), 
+      getFreq("info_csq_gnomade_eas_af"), getFreq("info_csq_gnomade_nfe_af"), 
+      getFreq("info_csq_gnomade_sas_af"), getFreq("info_csq_gnomade_fin_af"), 
+      getFreq("info_csq_gnomade_asj_af")
+    ];
+
+    let genomes = [
+      getFreq("info_csq_gnomadg_afr_af"), getFreq("info_csq_gnomadg_amr_af"), 
+      getFreq("info_csq_gnomadg_eas_af"), getFreq("info_csq_gnomadg_nfe_af"), 
+      getFreq("info_csq_gnomadg_sas_af"), getFreq("info_csq_gnomadg_fin_af"), 
+      getFreq("info_csq_gnomadg_asj_af")
+    ];
+
+    let threshold1 = [1, 1, 1, 1, 1, 1, 1];
+    let threshold5 = [5, 5, 5, 5, 5, 5, 5];
+
+    return {
+      series: [
+        { name: '1% Threshold', data: threshold1 },
+        { name: '5% Threshold', data: threshold5 },
+        { name: 'gnomAD Exomes (%)', data: exomes },
+        { name: 'gnomAD Genomes (%)', data: genomes }
+      ],
+      options: {
+        chart: { type: 'radar', toolbar: { show: false } },
+        
+        xaxis: { 
+          categories: categories,
+          labels: {
+            style: {
+              fontSize: '11px'
+            }
+          }
+        },
+
+        colors: ['#ff4d4d', '#ffcccc', '#008FFB', '#00E396'],
+        stroke: { width: 2 },
+        fill: { opacity: 0.4 },
+        markers: { size: 3 },
+        yaxis: { show: false }, 
+        tooltip: {
+          y: { formatter: function(val) { return val + "%" } }
+        },
+        legend: {
+          position: 'bottom',
+          markers: {
+            radius: 12
+          }
+        }
+      }
+    };
+  }
+
+  renderFrequencyRadar() {
+    let radar = this.getFrequencyRadarChart();
+    
+    // Don't render the chart if the variant is completely novel (all 0s)
+    let hasData = radar.series[0].data.some(val => val > 0) || radar.series[1].data.some(val => val > 0);
+    
+    if (!hasData) {
+      return <div className="alleleFrequencies"><i>No gnomAD population frequencies found for this variant.</i></div>;
+    }
+
+    return (
+      <div className="alleleFrequencies">
+        <b>GnomAD Population Frequencies</b>
+
+        <span onClick={(e) => this.toggleFrequencyRadarInformation()} className="informationButton informationButtonRight">
+          <i style={{ marginLeft: "5px" }} className="bi bi-info-circle-fill"></i>
+        </span>
+
+        <div className={"information " + (this.state.showFrequencyRadarInformation ? "" : "hidden")}>
+          This radar chart displays the allele frequencies of the major continental populations in gnomAD. <br/><br/>
+          <b>Note:</b> Bottlenecked and minor populations (e.g., Amish, Middle Eastern, Remaining) are excluded from this visualization to prevent founder effects from skewing the chart. The red zones represent the 1% and 5% frequency thresholds.
+        </div>
+
+        <Chart options={radar.options} series={radar.series} type="radar" height={500} />
+      </div>
+    );
+  }
+
   renderFilter() {
     if (this.state.variant.filter != null && this.state.variant.filter.toLowerCase() == "pass") {
       return <span className="inlineBox" style={{background: "#00a087"}}>Pass</span>
@@ -450,6 +548,9 @@ class View extends React.Component {
     this.setState(prevState => ({ showAlleleFrequencyInformation: !prevState.showAlleleFrequencyInformation }));
   }
 
+  toggleFrequencyRadarInformation() {
+    this.setState(prevState => ({ showFrequencyRadarInformation: !prevState.showFrequencyRadarInformation }));
+  }
 
   renderIgv() {
     var igvDiv = this.igvRef.current;
@@ -589,6 +690,9 @@ class View extends React.Component {
           </div>
           <div className="halfinlineblockright">
             {this.renderAlleleFrequencies()}
+          </div>
+          <div>
+            {this.renderFrequencyRadar()}
           </div>
         </div>
 
